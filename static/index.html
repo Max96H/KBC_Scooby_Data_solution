@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moments – customer demo</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/i18n.js" defer></script>
+  <script src="/static/common.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <!-- Sign in -->
+  <main id="login-view" class="login" hidden>
+    <section class="login-intro">
+      <div class="login-top">
+        <p class="eyebrow" data-i18n="login.eyebrow"></p>
+        <div class="lang-switch" data-lang-switch></div>
+      </div>
+      <h1>Moments</h1>
+      <p class="lead" data-i18n="login.lead"></p>
+      <p class="muted small" data-i18n="login.hint"></p>
+      <div id="persona-grid" class="persona-grid"></div>
+      <p class="small"><a href="/advisor" data-i18n="login.advisorLink"></a></p>
+    </section>
+    <form id="login-form" class="card login-form" autocomplete="off">
+      <h2 data-i18n="login.title"></h2>
+      <label><span data-i18n="login.username"></span><input id="login-username" name="username" required maxlength="32" pattern="[a-z0-9_.\-]+"></label>
+      <label><span data-i18n="login.password"></span><input id="login-password" name="password" type="password" required maxlength="128"></label>
+      <button type="submit" class="btn primary" data-i18n="login.submit"></button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </main>
+
+  <!-- Application -->
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <div class="brand">Moments <span class="muted" data-i18n="top.demo"></span></div>
+      <div class="topbar-right">
+        <span id="demo-clock" class="pill"></span>
+        <span id="who" class="who"></span>
+        <div class="lang-switch" data-lang-switch></div>
+        <button id="logout" class="btn ghost small" data-i18n="top.switch"></button>
+      </div>
+    </header>
+
+    <div class="stage">
+      <div class="phone-col">
+        <div class="phone-caption">
+          <span id="channel-chip" class="channel-chip"></span>
+          <button id="replay" class="btn link small" data-i18n="phone.replay"></button>
+        </div>
+        <!-- What the customer experiences: the screen changes with the channel -->
+        <section class="phone" aria-label="Customer phone">
+          <div class="phone-speaker"></div>
+          <div id="phone-screen" class="phone-screen"></div>
+        </section>
+      </div>
+
+      <!-- Backstage: the engine journal -->
+      <section class="backstage">
+        <div class="backstage-head">
+          <h2 data-i18n="back.title"></h2>
+          <p class="muted small" data-i18n="back.sub"></p>
+        </div>
+        <div id="journal"></div>
+      </section>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

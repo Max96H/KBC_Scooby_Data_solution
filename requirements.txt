@@ -1,0 +1,8 @@
+# Exact pins: reproducible builds and a dependency scan that sees the real versions.
+# starlette >= 1.0.1 fixes the Host header injection flagged by Aikido (request.url rebuilt from Host).
+fastapi==0.142.2
+starlette==1.7.0
+uvicorn==0.46.0
+pydantic==2.13.3
+PyJWT==2.12.1
+httpx==0.28.1
