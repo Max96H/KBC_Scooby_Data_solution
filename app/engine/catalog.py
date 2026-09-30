@@ -45,7 +45,8 @@ class Action:
 
 
 def _cta(id_: str, en: str, fr: str, nl: str, effect: str) -> Cta:
-    assert effect in CTA_EFFECTS
+    if effect not in CTA_EFFECTS:
+        raise AssertionError
     return Cta(id=id_, label={"en": en, "fr": fr, "nl": nl}, effect=effect)
 
 
