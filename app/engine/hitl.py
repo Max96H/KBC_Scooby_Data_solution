@@ -47,7 +47,8 @@ def log_event(conn: sqlite3.Connection, task_id: int, actor: str, event: str, no
 def open_task(conn: sqlite3.Connection, customer_id: str, decision_id: str | None, action_id: str, task_type: str,
               reason_code: str, now: datetime, actor: str = "engine", priority: str = "normal") -> int:
     """Create a task, or return the open one of the same type for this customer and action (no duplicates)."""
-    assert task_type in TASK_TYPES
+    if task_type not in TASK_TYPES:
+        raise AssertionError
     row = conn.execute(
         "SELECT id, priority FROM advisor_tasks WHERE customer_id = ? AND action_id = ? AND task_type = ? AND status = 'open'",
         (customer_id, action_id, task_type),
