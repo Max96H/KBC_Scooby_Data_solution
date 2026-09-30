@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moments – advisor console</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/i18n.js" defer></script>
+  <script src="/static/common.js" defer></script>
+  <script src="/static/dashboard.js" defer></script>
+</head>
+<body class="dash">
+  <main id="login-view" class="login narrow" hidden>
+    <form id="login-form" class="card login-form" autocomplete="off">
+      <div class="login-top">
+        <p class="eyebrow" data-i18n="dash.eyebrow"></p>
+        <div class="lang-switch" data-lang-switch></div>
+      </div>
+      <h2 data-i18n="dash.loginTitle"></h2>
+      <label><span data-i18n="login.username"></span><input id="login-username" value="advisor" required maxlength="32"></label>
+      <label><span data-i18n="login.password"></span><input id="login-password" type="password" required maxlength="128"></label>
+      <button type="submit" class="btn primary" data-i18n="login.submit"></button>
+      <p id="login-error" class="error" role="alert"></p>
+      <p class="small"><a href="/" data-i18n="dash.backToDemo"></a></p>
+    </form>
+  </main>
+
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <div class="brand">Moments <span class="muted" data-i18n="dash.brand"></span></div>
+      <div class="topbar-right">
+        <div class="lang-switch" data-lang-switch></div>
+        <a class="btn ghost small" href="/" data-i18n="dash.customerDemo"></a>
+        <button id="refresh" class="btn ghost small" data-i18n="dash.refresh"></button>
+        <button id="logout" class="btn ghost small" data-i18n="dash.logout"></button>
+      </div>
+    </header>
+
+    <div class="dash-grid">
+      <section class="kpis" id="kpis"></section>
+
+      <section class="card span2">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="dash.queue"></h2>
+            <p class="muted small" data-i18n="dash.queueSub"></p>
+          </div>
+          <div class="seg" id="task-filter"></div>
+        </div>
+        <div class="queue-grid">
+          <div id="tasks" class="task-list"></div>
+          <div id="task-detail" class="task-detail"></div>
+        </div>
+      </section>
+
+      <section class="card span2">
+        <h2 data-i18n="dash.agenda"></h2>
+        <p class="muted small" data-i18n="dash.agendaSub"></p>
+        <div id="agenda"></div>
+      </section>
+
+      <section class="card span2">
+        <h2 data-i18n="dash.learning"></h2>
+        <p class="muted small" data-i18n="dash.learningSub"></p>
+        <div id="actions-table"></div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="dash.timeline"></h2>
+        <p class="muted small" data-i18n="dash.timelineSub"></p>
+        <div id="timeline" class="chart"></div>
+        <h3 class="mt" data-i18n="dash.channels"></h3>
+        <div id="channels"></div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="dash.fairness"></h2>
+        <p class="muted small" data-i18n="dash.fairnessSub"></p>
+        <div id="fairness"></div>
+        <h3 class="mt" data-i18n="dash.bandit"></h3>
+        <div id="bandit"></div>
+      </section>
+
+      <section class="card span2" id="cost">
+        <h2 data-i18n="dash.cost"></h2>
+        <p class="muted small" data-i18n="dash.costSub"></p>
+        <div class="cost-grid">
+          <form id="cost-form" class="cost-inputs"></form>
+          <div id="cost-out" class="cost-out"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
